@@ -1,0 +1,1146 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لُغَتِي الْعَرَبِيَّةُ - أَحْمَدُ فِي الْمَدْرَسَةِ</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap');
+
+:root {
+  --green: #78ad68;
+  --green-dark: #426f48;
+  --green-light: #eef7e9;
+  --orange: #efa65c;
+  --orange-light: #fff2df;
+  --blue: #7eafcf;
+  --blue-light: #edf6fc;
+  --pink: #e9aaaa;
+  --red: #d94d4d;
+  --ink: #34463a;
+  --paper: #ffffff;
+  --background: #f5f8f1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font-family: "Cairo", sans-serif;
+  font-size: 17px;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #e9b64f;
+  outline-offset: 3px;
+}
+
+.app {
+  width: min(1100px, 100%);
+  margin: auto;
+  padding: 16px;
+}
+
+header {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 18px;
+  text-align: center;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #eaf5e3, #fff6e8);
+  border: 2px solid #d7e7cd;
+}
+
+.book-label {
+  display: inline-block;
+  background: white;
+  color: var(--green-dark);
+  padding: 5px 15px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+header h1 {
+  margin: 14px 0 5px;
+  font-size: clamp(25px, 5vw, 38px);
+  color: var(--green-dark);
+  font-weight: 800;
+}
+
+header p {
+  margin: 0;
+  line-height: 2;
+}
+
+.header-illustration {
+  font-size: 52px;
+  margin-top: 12px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.nav-btn {
+  padding: 11px 15px;
+  border: 2px solid #dce7d6;
+  border-radius: 15px;
+  background: white;
+  color: var(--green-dark);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.nav-btn.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: white;
+}
+
+.page {
+  display: none;
+  animation: appear .25s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-heading {
+  margin: 12px 0;
+  font-size: 25px;
+  color: var(--green-dark);
+}
+
+.panel {
+  padding: 20px;
+  margin-bottom: 16px;
+  background: white;
+  border: 2px solid #e2eadc;
+  border-radius: 23px;
+  box-shadow: 0 4px 14px #34463a0a;
+}
+
+.intro {
+  line-height: 2;
+  color: #657568;
+  margin-top: 0;
+}
+
+.lesson-lines {
+  display: grid;
+  gap: 12px;
+}
+
+.lesson-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 17px 12px;
+  background: #f7faf4;
+  border-radius: 18px;
+  border: 1px solid #e3ebdd;
+  font-family: "Amiri", serif;
+  font-size: clamp(24px, 5vw, 36px);
+  line-height: 1.9;
+}
+
+.word {
+  border: 0;
+  border-bottom: 2px dashed #a5c98e;
+  background: transparent;
+  padding: 2px 5px;
+  color: #34463a;
+  font-family: "Amiri", serif;
+  font-size: inherit;
+  border-radius: 8px;
+}
+
+.word:hover {
+  background: #eaf5e3;
+}
+
+.word.highlight {
+  background: #fff0c8;
+  border-color: #e6b85b;
+}
+
+.word.red {
+  color: var(--red);
+  font-weight: bold;
+}
+
+.word.green {
+  color: #78ad45;
+  font-weight: bold;
+}
+
+.primary,
+.secondary,
+.sound-btn {
+  border: 0;
+  border-radius: 14px;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 3px;
+}
+
+.primary {
+  background: var(--green);
+  color: white;
+}
+
+.secondary {
+  background: var(--orange-light);
+  color: #8a5b24;
+  border: 1px solid #f0d3a5;
+}
+
+.sound-btn {
+  background: var(--blue-light);
+  color: #386b8b;
+}
+
+.primary:hover,
+.secondary:hover,
+.sound-btn:hover {
+  filter: brightness(.97);
+  transform: translateY(-1px);
+}
+
+.center {
+  text-align: center;
+}
+
+.learning-board {
+  background: #f9fbf6;
+  border: 2px dashed #b9d5ab;
+  border-radius: 20px;
+  padding: 17px 12px;
+  margin: 15px 0;
+}
+
+.instruction {
+  background: var(--orange-light);
+  border-radius: 14px;
+  padding: 12px;
+  line-height: 2;
+  text-align: center;
+  margin: 12px 0;
+}
+
+.letter-source {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.draggable-letter {
+  width: 76px;
+  height: 76px;
+  border-radius: 18px;
+  border: 3px solid var(--green);
+  background: white;
+  color: var(--red);
+  font-family: "Amiri", serif;
+  font-size: 48px;
+  font-weight: bold;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.draggable-letter.selected {
+  outline: 4px solid #f0ca65;
+  background: #fff8df;
+}
+
+.target-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.drop-target {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 112px;
+  min-height: 145px;
+  padding: 12px;
+  border: 3px dashed var(--blue);
+  border-radius: 18px;
+  background: var(--blue-light);
+  cursor: pointer;
+  transition: .2s;
+}
+
+.drop-target.over,
+.drop-target:active {
+  background: #fff0c6;
+  border-color: #e2ae43;
+}
+
+.target-name {
+  font-size: 15px;
+  color: #386b8b;
+  font-weight: bold;
+}
+
+.target-symbol {
+  font-family: "Amiri", serif;
+  font-size: 43px;
+  font-weight: bold;
+  color: var(--red);
+  min-height: 58px;
+}
+
+.target-hint {
+  font-size: 12px;
+  color: #657568;
+  text-align: center;
+}
+
+.result-message {
+  min-height: 54px;
+  padding: 12px;
+  text-align: center;
+  color: var(--green-dark);
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.9;
+}
+
+.letter-choice {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.letter-card {
+  width: 95px;
+  padding: 12px 6px;
+  border: 2px solid #dce7d6;
+  border-radius: 16px;
+  background: white;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.letter-card .big {
+  display: block;
+  font-family: "Amiri", serif;
+  font-size: 42px;
+  color: var(--red);
+}
+
+.letter-card.selected {
+  border: 3px solid var(--green);
+  background: var(--green-light);
+}
+
+.quiz-question {
+  font-size: 23px;
+  font-weight: bold;
+  line-height: 2;
+  text-align: center;
+  margin: 10px 0 18px;
+}
+
+.answer-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.answer-btn {
+  min-width: 115px;
+  padding: 14px 17px;
+  background: white;
+  border: 2px solid #dce7d6;
+  border-radius: 15px;
+  font-size: 23px;
+  font-family: "Amiri", serif;
+  color: var(--ink);
+}
+
+.answer-btn.correct {
+  background: #e8f6e2;
+  border-color: var(--green);
+}
+
+.answer-btn.wrong {
+  background: #fff0ed;
+  border-color: #e49b8e;
+}
+
+.badge {
+  display: inline-block;
+  background: #fff0c6;
+  color: #8a5b24;
+  border-radius: 20px;
+  padding: 7px 13px;
+  font-weight: bold;
+}
+
+.progress-wrap {
+  height: 12px;
+  background: #e8eee4;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--green);
+  transition: width .3s;
+}
+
+footer {
+  text-align: center;
+  padding: 22px 10px;
+  color: #748273;
+  font-size: 14px;
+  line-height: 2;
+}
+
+@media(max-width:480px) {
+  .app { padding: 9px; }
+  .panel { padding: 14px 10px; }
+  .nav-btn { padding: 9px 11px; font-size: 13px; }
+  .drop-target { min-width: 92px; min-height: 125px; }
+  .lesson-line { gap: 5px; }
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<header>
+  <span class="book-label">السَّنَةُ الْأُولَى ابْتِدَائِي</span>
+  <h1>لُغَتِي الْعَرَبِيَّةُ</h1>
+  <p>أَتَعَلَّمُ، وَأَلْعَبُ، وَأَقْرَأُ بِثِقَةٍ!</p>
+  <div class="header-illustration" aria-hidden="true">📚 ✏️ 🎒</div>
+  <p><strong>الدَّرْسُ:</strong> أَحْمَدُ فِي الْمَدْرَسَةِ</p>
+</header>
+
+<nav aria-label="أَقْسَامُ الْمَنْصَّةِ">
+  <button class="nav-btn active" data-page="lesson">📖 أَقْرَأُ</button>
+  <button class="nav-btn" data-page="letters">🔤 أَتَعَرَّفُ عَلَى الْحُرُوفِ</button>
+  <button class="nav-btn" data-page="vowels">🟢 أُشَكِّلُ الْحَرْفَ</button>
+  <button class="nav-btn" data-page="madd">📣 أَمُدُّ الْحَرْفَ</button>
+  <button class="nav-btn" data-page="morning">🌞 صَبَاحًا وَمَسَاءً</button>
+  <button class="nav-btn" data-page="quiz">⭐ أَخْتَبِرُ نَفْسِي</button>
+</nav>
+
+<div class="panel">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+    <strong>⭐ نُجُومِي</strong>
+    <span class="badge" id="score">٠ نُجُومٍ</span>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-bar" id="progress"></div>
+  </div>
+  <small id="progressText">هَيَّا نَبْدَأُ التَّعَلُّمَ!</small>
+</div>
+
+<!-- الصَّفْحَةُ الْأُولَى: الدَّرْسُ -->
+
+<section class="page active" id="lesson">
+  <h2 class="section-heading">📖 أَقْرَأُ الدَّرْسَ</h2>
+  <div class="panel">
+    <p class="intro">
+      اِضْغَطْ عَلَى أَيِّ كَلِمَةٍ لِتَسْمَعَ صَوْتَهَا،
+      أَوِ اضْغَطْ عَلَى زِرِّ الْقِرَاءَةِ لِسَمَاعِ الْجُمْلَةِ كَامِلَةً.
+    </p>
+
+    <div class="lesson-lines" id="lessonLines">
+      <div class="lesson-line">
+        <button class="word green" data-say="أَحْمَدُ">أَحْمَدُ</button>
+        <button class="word" data-say="فِي">فِي</button>
+        <button class="word green" data-say="الْمَدْرَسَةِ">الْمَدْرَسَةِ</button>
+      </div>
+
+      <div class="lesson-line">
+        <button class="word" data-say="أَذْهَبُ">أَذْهَبُ</button>
+        <button class="word" data-say="إِلَى">إِلَى</button>
+        <button class="word" data-say="الْمَدْرَسَةِ">الْمَدْرَسَةِ</button>
+        <button class="word red" data-say="صَبَاحًا">صَبَاحًا</button>
+      </div>
+
+      <div class="lesson-line">
+        <button class="word" data-say="أَعُودُ">أَعُودُ</button>
+        <button class="word" data-say="إِلَى">إِلَى</button>
+        <button class="word" data-say="الْمَنْزِلِ">الْمَنْزِلِ</button>
+        <button class="word red" data-say="مَسَاءً">مَسَاءً</button>
+      </div>
+    </div>
+
+    <div class="center" style="margin-top:18px">
+      <button class="primary" id="readAll">🔊 أَسْتَمِعُ إِلَى الدَّرْسِ</button>
+      <button class="secondary" id="stopSpeech">⏹️ إِيقَافُ الصَّوْتِ</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3 class="section-heading">🎯 أَفْهَمُ مَا أَقْرَأُ</h3>
+    <p class="quiz-question">مَتَى أَذْهَبُ إِلَى الْمَدْرَسَةِ؟</p>
+    <div class="answer-list">
+      <button class="answer-btn" data-answer="wrong" data-feedback="حَاوِلْ مَرَّةً أُخْرَى.">مَسَاءً</button>
+      <button class="answer-btn" data-answer="correct" data-feedback="أَحْسَنْتَ! أَذْهَبُ إِلَى الْمَدْرَسَةِ صَبَاحًا.">صَبَاحًا</button>
+    </div>
+    <div class="result-message" id="lessonFeedback" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- الصَّفْحَةُ الثَّانِيَةُ: الْحُرُوفُ -->
+
+<section class="page" id="letters">
+  <h2 class="section-heading">🔤 أَتَعَرَّفُ عَلَى الْحُرُوفِ</h2>
+  <div class="panel">
+    <p class="intro">
+      أَتَعَلَّمُ حَرْفَيِ الْمِيمِ وَالْبَاءِ. اِضْغَطْ عَلَى الْحَرْفِ لِتَسْمَعَ اسْمَهُ.
+    </p>
+
+    <div class="letter-choice">
+      <button class="letter-card" data-letter="م" data-lettername="مِيمٌ">
+        <span class="big">م</span>الْمِيمُ
+      </button>
+      <button class="letter-card" data-letter="ب" data-lettername="بَاءٌ">
+        <span class="big">ب</span>الْبَاءُ
+      </button>
+    </div>
+
+    <div class="learning-board center">
+      <div style="font-size:20px">الْحَرْفُ الَّذِي اخْتَرْتُهُ:</div>
+      <div id="chosenLetter" style="font-family:Amiri,serif;font-size:75px;color:#d94d4d">ب</div>
+      <button class="primary" id="hearLetter">🔊 أَسْمَعُ الْحَرْفَ</button>
+    </div>
+
+    <h3 class="section-heading">📝 أَجِدُ الْحَرْفَ فِي الْكَلِمَةِ</h3>
+    <p class="quiz-question">أَيْنَ حَرْفُ الْبَاءِ؟</p>
+    <div class="answer-list">
+      <button class="answer-btn" data-letterquiz="wrong" data-feedback="حَاوِلْ مَرَّةً أُخْرَى.">مَدْرَسَةٌ</button>
+      <button class="answer-btn" data-letterquiz="correct" data-feedback="أَحْسَنْتَ! كَلِمَةُ بَابٌ تَبْدَأُ بِحَرْفِ الْبَاءِ.">بَابٌ</button>
+      <button class="answer-btn" data-letterquiz="wrong" data-feedback="حَاوِلْ مَرَّةً أُخْرَى.">مِيمٌ</button>
+    </div>
+    <div class="result-message" id="letterFeedback" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- الصَّفْحَةُ الثَّالِثَةُ: التَّشْكِيلُ -->
+
+<section class="page" id="vowels">
+  <h2 class="section-heading">🟢 أُشَكِّلُ الْحَرْفَ</h2>
+  <div class="panel">
+    <p class="intro">
+      أَسْحَبُ حَرْفَ الْبَاءِ إِلَى الْحَرَكَةِ الْمُنَاسِبَةِ،
+      فَأَسْمَعُ صَوْتَهُ. يُمْكِنُنِي أَيْضًا الضَّغْطُ عَلَى الْحَرْفِ ثُمَّ عَلَى الْحَرَكَةِ.
+    </p>
+
+    <div class="learning-board">
+      <p class="instruction">اِسْحَبْ حَرْفَ الْبَاءِ إِلَى الْفَتْحَةِ أَوِ الْكَسْرَةِ أَوِ الضَّمَّةِ.</p>
+
+      <div class="letter-source">
+        <button class="draggable-letter" draggable="true" data-drag-letter="ب" aria-label="حَرْفُ الْبَاءِ">ب</button>
+      </div>
+
+      <div class="target-grid" id="vowelTargets">
+        <div class="drop-target" tabindex="0" data-type="vowel" data-result="بَ" data-sound="بَ">
+          <span class="target-name">الْفَتْحَةُ</span>
+          <span class="target-symbol">َ</span>
+          <span class="target-hint">ضَعِ الْحَرْفَ هُنَا</span>
+        </div>
+
+        <div class="drop-target" tabindex="0" data-type="vowel" data-result="بِ" data-sound="بِ">
+          <span class="target-name">الْكَسْرَةُ</span>
+          <span class="target-symbol">ِ</span>
+          <span class="target-hint">ضَعِ الْحَرْفَ هُنَا</span>
+        </div>
+
+        <div class="drop-target" tabindex="0" data-type="vowel" data-result="بُ" data-sound="بُ">
+          <span class="target-name">الضَّمَّةُ</span>
+          <span class="target-symbol">ُ</span>
+          <span class="target-hint">ضَعِ الْحَرْفَ هُنَا</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-message" id="vowelFeedback" aria-live="polite">هَيَّا نُشَكِّلُ الْحَرْفَ!</div>
+
+    <div class="center">
+      <button class="sound-btn" id="hearVowels">🔊 أَسْمَعُ الْمَقَاطِعَ</button>
+      <button class="secondary" id="resetVowels">🔄 أُعِيدُ التَّمْرِينَ</button>
+    </div>
+  </div>
+</section>
+
+<!-- الصَّفْحَةُ الرَّابِعَةُ: الْمَدُّ -->
+
+<section class="page" id="madd">
+  <h2 class="section-heading">📣 أَمُدُّ الْحَرْفَ</h2>
+  <div class="panel">
+    <p class="intro">
+      أَسْحَبُ حَرْفَ الْبَاءِ إِلَى حَرْفِ الْمَدِّ الْمُنَاسِبِ.
+      أَسْمَعُ الْمَقْطَعَ، وَأُرَاقِبُ كَيْفَ تَتَغَيَّرُ الْحَرَكَةُ.
+    </p>
+
+    <div class="learning-board">
+      <p class="instruction">
+        أَخْتَارُ حَرْفَ الْمَدِّ، ثُمَّ أَسْحَبُ إِلَيْهِ حَرْفَ الْبَاءِ.
+      </p>
+
+      <div class="letter-source">
+        <button class="draggable-letter" draggable="true" data-drag-letter="ب" aria-label="حَرْفُ الْبَاءِ">ب</button>
+      </div>
+
+      <div class="target-grid" id="maddTargets">
+        <div class="drop-target" tabindex="0" data-type="madd" data-result="بَا" data-sound="بَا">
+          <span class="target-name">الْأَلِفُ</span>
+          <span class="target-symbol">ا</span>
+          <span class="target-hint">فَتْحَةٌ + أَلِفٌ</span>
+        </div>
+
+        <div class="drop-target" tabindex="0" data-type="madd" data-result="بُو" data-sound="بُو">
+          <span class="target-name">الْوَاوُ</span>
+          <span class="target-symbol">و</span>
+          <span class="target-hint">ضَمَّةٌ + وَاوٌ</span>
+        </div>
+
+        <div class="drop-target" tabindex="0" data-type="madd" data-result="بِي" data-sound="بِي">
+          <span class="target-name">الْيَاءُ</span>
+          <span class="target-symbol">ي</span>
+          <span class="target-hint">كَسْرَةٌ + يَاءٌ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-message" id="maddFeedback" aria-live="polite">هَيَّا نَتَعَلَّمُ الْمَدَّ!</div>
+
+    <div class="center">
+      <button class="sound-btn" id="hearMadd">🔊 أَسْمَعُ حُرُوفَ الْمَدِّ</button>
+      <button class="secondary" id="resetMadd">🔄 أُعِيدُ التَّمْرِينَ</button>
+    </div>
+  </div>
+</section>
+
+<!-- الصَّفْحَةُ الْخَامِسَةُ: صَبَاحًا وَمَسَاءً -->
+
+<section class="page" id="morning">
+  <h2 class="section-heading">🌞 صَبَاحًا وَمَسَاءً</h2>
+  <div class="panel">
+    <p class="intro">أَتَعَلَّمُ مَتَى أَذْهَبُ إِلَى الْمَدْرَسَةِ وَمَتَى أَعُودُ إِلَى الْمَنْزِلِ.</p>
+
+    <div class="target-grid">
+      <div class="drop-target" style="flex:1;min-width:140px;background:#fff5df;border-color:#edc579">
+        <span style="font-size:45px">🌞</span>
+        <span class="target-name">صَبَاحًا</span>
+        <button class="word red" data-say="صَبَاحًا">صَبَاحًا</button>
+        <button class="sound-btn" data-say="أَذْهَبُ إِلَى الْمَدْرَسَةِ صَبَاحًا">🔊 أَسْمَعُ</button>
+      </div>
+
+      <div class="drop-target" style="flex:1;min-width:140px;background:#edf4ff;border-color:#a8c4e5">
+        <span style="font-size:45px">🌙</span>
+        <span class="target-name">مَسَاءً</span>
+        <button class="word red" data-say="مَسَاءً">مَسَاءً</button>
+        <button class="sound-btn" data-say="أَعُودُ إِلَى الْمَنْزِلِ مَسَاءً">🔊 أَسْمَعُ</button>
+      </div>
+    </div>
+
+    <h3 class="section-heading">🎯 أَخْتَارُ الْإِجَابَةَ الصَّحِيحَةَ</h3>
+    <p class="quiz-question">أَعُودُ إِلَى الْمَنْزِلِ...</p>
+    <div class="answer-list">
+      <button class="answer-btn" data-time="wrong" data-feedback="حَاوِلْ مَرَّةً أُخْرَى.">صَبَاحًا</button>
+      <button class="answer-btn" data-time="correct" data-feedback="مُمْتَازٌ! أَعُودُ إِلَى الْمَنْزِلِ مَسَاءً.">مَسَاءً</button>
+    </div>
+    <div class="result-message" id="timeFeedback" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- الصَّفْحَةُ السَّادِسَةُ: اخْتِبَارٌ -->
+
+<section class="page" id="quiz">
+  <h2 class="section-heading">⭐ أَخْتَبِرُ نَفْسِي</h2>
+  <div class="panel center">
+    <p class="intro">أُجِيبُ عَنِ الْأَسْئِلَةِ، وَأَجْمَعُ النُّجُومَ!</p>
+
+    <div class="badge" id="quizCount">السُّؤَالُ ١ مِنْ ٤</div>
+    <p class="quiz-question" id="quizQuestion">مَتَى أَذْهَبُ إِلَى الْمَدْرَسَةِ؟</p>
+    <button class="sound-btn" id="hearQuestion">🔊 أَسْمَعُ السُّؤَالَ</button>
+
+    <div class="answer-list" id="quizAnswers"></div>
+    <div class="result-message" id="quizFeedback" aria-live="polite"></div>
+
+    <button class="primary" id="nextQuestion" hidden>السُّؤَالُ التَّالِي ←</button>
+    <button class="secondary" id="restartQuiz">🔄 أُعِيدُ الِاخْتِبَارَ</button>
+  </div>
+</section>
+
+<footer>
+  <strong>أَنَا تِلْمِيذٌ مُجْتَهِدٌ! 🌟</strong><br>
+  أَتَعَلَّمُ كُلَّ يَوْمٍ، وَأَتَقَدَّمُ خُطْوَةً جَدِيدَةً.
+</footer>
+
+</div>
+
+<script>
+/* =========================================
+   إِعْدَادَاتٌ عَامَّةٌ
+========================================= */
+
+let stars = 0;
+let completed = new Set();
+let selectedLetter = null;
+let currentQuiz = 0;
+let quizAnswered = false;
+
+const $ = selector => document.querySelector(selector);
+const $$ = selector => [...document.querySelectorAll(selector)];
+
+function arabicNumber(n) {
+  return String(n).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[Number(d)]);
+}
+
+function showMessage(message) {
+  const live = $("#vowelFeedback");
+  if (live) live.textContent = message;
+}
+
+function updateScore() {
+  $("#score").textContent = arabicNumber(stars) +
+    (stars === 1 ? " نَجْمَةٌ" : " نُجُومٍ");
+
+  const percent = Math.min(100, Math.round(completed.size / 10 * 100));
+  $("#progress").style.width = percent + "%";
+  $("#progressText").textContent =
+    percent === 100
+      ? "رَائِعٌ! أَتْمَمْتَ جَمِيعَ الْأَنْشِطَةِ!"
+      : "أَكْمِلِ الْأَنْشِطَةَ لِتَجْمَعَ الْمَزِيدَ مِنَ النُّجُومِ.";
+}
+
+function addStar(id) {
+  if (completed.has(id)) return;
+  completed.add(id);
+  stars++;
+  updateScore();
+}
+
+function reward(message) {
+  return message;
+}
+
+/* =========================================
+   النُّطْقُ بِاللُّغَةِ الْعَرَبِيَّةِ
+========================================= */
+
+function speak(text) {
+  if (!("speechSynthesis" in window)) {
+    alert("عَذْرًا، هَذَا الْمُتَصَفِّحُ لَا يَدْعَمُ النُّطْقَ الصَّوْتِيَّ.");
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "ar-SA";
+  utterance.rate = 0.72;
+  utterance.pitch = 1.05;
+  utterance.volume = 1;
+
+  const voices = window.speechSynthesis.getVoices();
+  const arabicVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith("ar"));
+
+  if (arabicVoice) utterance.voice = arabicVoice;
+
+  window.speechSynthesis.speak(utterance);
+}
+
+if ("speechSynthesis" in window) {
+  window.speechSynthesis.getVoices();
+}
+
+/* =========================================
+   التَّنَقُّلُ بَيْنَ الصَّفَحَاتِ
+========================================= */
+
+function goToPage(pageId) {
+  $$(".page").forEach(page => page.classList.remove("active"));
+  $$(".nav-btn").forEach(btn => btn.classList.remove("active"));
+
+  const page = document.getElementById(pageId);
+  const nav = document.querySelector(`[data-page="${pageId}"]`);
+
+  if (page) page.classList.add("active");
+  if (nav) nav.classList.add("active");
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+$$(".nav-btn").forEach(btn => {
+  btn.addEventListener("click", () => goToPage(btn.dataset.page));
+});
+
+/* =========================================
+   قِرَاءَةُ الْكَلِمَاتِ وَالْجُمَلِ
+========================================= */
+
+$$(".word[data-say]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    $$(".word").forEach(w => w.classList.remove("highlight"));
+    btn.classList.add("highlight");
+    speak(btn.dataset.say);
+  });
+});
+
+$("#readAll").addEventListener("click", () => {
+  speak("أَحْمَدُ فِي الْمَدْرَسَةِ. أَذْهَبُ إِلَى الْمَدْرَسَةِ صَبَاحًا. أَعُودُ إِلَى الْمَنْزِلِ مَسَاءً.");
+  addStar("read-lesson");
+});
+
+$("#stopSpeech").addEventListener("click", () => {
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+});
+
+/* =========================================
+   أَسْئِلَةُ الْفَهْمِ
+========================================= */
+
+$$("[data-answer]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const feedback = $("#lessonFeedback");
+    if (btn.dataset.answer === "correct") {
+      feedback.textContent = btn.dataset.feedback;
+      btn.classList.add("correct");
+      addStar("lesson-question");
+      speak("أَحْسَنْتَ! أَذْهَبُ إِلَى الْمَدْرَسَةِ صَبَاحًا.");
+    } else {
+      feedback.textContent = btn.dataset.feedback;
+      btn.classList.add("wrong");
+      speak("حَاوِلْ مَرَّةً أُخْرَى.");
+    }
+  });
+});
+
+/* =========================================
+   التَّعَرُّفُ عَلَى الْحُرُوفِ
+========================================= */
+
+$$("[data-letter]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    $$(".letter-card").forEach(card => card.classList.remove("selected"));
+    btn.classList.add("selected");
+    selectedLetter = btn.dataset.letter;
+    $("#chosenLetter").textContent = selectedLetter;
+    speak(btn.dataset.lettername);
+  });
+});
+
+$("#hearLetter").addEventListener("click", () => {
+  if (selectedLetter === "م") speak("مِيمٌ");
+  else speak("بَاءٌ");
+});
+
+$$("[data-letterquiz]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const feedback = $("#letterFeedback");
+    feedback.textContent = btn.dataset.feedback;
+
+    if (btn.dataset.letterquiz === "correct") {
+      btn.classList.add("correct");
+      addStar("letter-question");
+      speak("أَحْسَنْتَ! بَابٌ.");
+    } else {
+      btn.classList.add("wrong");
+      speak("حَاوِلْ مَرَّةً أُخْرَى.");
+    }
+  });
+});
+
+/* =========================================
+   السَّحْبُ وَالْإِفْلَاتُ وَالضَّغْطُ
+========================================= */
+
+$$("[data-drag-letter]").forEach(btn => {
+  btn.addEventListener("dragstart", e => {
+    e.dataTransfer.setData("text/plain", btn.dataset.dragLetter);
+    e.dataTransfer.effectAllowed = "copy";
+    selectedLetter = btn.dataset.dragLetter;
+  });
+
+  btn.addEventListener("click", () => {
+    selectedLetter = btn.dataset.dragLetter;
+    $$("[data-drag-letter]").forEach(b => b.classList.remove("selected"));
+    btn.classList.add("selected");
+    speak("حَرْفُ الْبَاءِ. اِخْتَرِ الْحَرَكَةَ أَوْ حَرْفَ الْمَدِّ.");
+  });
+});
+
+function setupTargets(selector, kind) {
+  $$(selector).forEach(target => {
+    target.addEventListener("dragover", e => {
+      e.preventDefault();
+      target.classList.add("over");
+    });
+
+    target.addEventListener("dragleave", () => {
+      target.classList.remove("over");
+    });
+
+    target.addEventListener("drop", e => {
+      e.preventDefault();
+      target.classList.remove("over");
+      const letter = e.dataTransfer.getData("text/plain");
+      if (letter === "ب") applyTarget(target, kind);
+    });
+
+    target.addEventListener("click", () => {
+      if (selectedLetter === "ب") {
+        applyTarget(target, kind);
+      } else {
+        const feedback = kind === "vowel" ? $("#vowelFeedback") : $("#maddFeedback");
+        feedback.textContent = "اِضْغَطْ عَلَى حَرْفِ الْبَاءِ أَوَّلًا، ثُمَّ اخْتَرِ الْمَكَانَ.";
+      }
+    });
+
+    target.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        if (selectedLetter === "ب") applyTarget(target, kind);
+      }
+    });
+  });
+}
+
+function applyTarget(target, kind) {
+  const result = target.dataset.result;
+  const sound = target.dataset.sound;
+  const feedback = kind === "vowel" ? $("#vowelFeedback") : $("#maddFeedback");
+
+  target.querySelector(".target-symbol").textContent = result;
+  target.querySelector(".target-hint").textContent = "أَحْسَنْتَ! اضْغَطْ لِلسَّمَاعِ.";
+
+  target.style.borderStyle = "solid";
+  target.style.borderColor = "#78ad68";
+  target.style.background = "#eef7e9";
+
+  const name = kind === "vowel" ? "تَشْكِيلٌ-" : "مَدٌّ-";
+  const key = name + result;
+
+  if (kind === "vowel") {
+    feedback.textContent = "أَحْسَنْتَ! الْمَقْطَعُ هُوَ: " + result;
+  } else {
+    feedback.textContent = "مُمْتَازٌ! الْمَقْطَعُ الْمَمْدُودُ هُوَ: " + result;
+  }
+
+  speak(sound);
+  addStar(key);
+  selectedLetter = null;
+  $$("[data-drag-letter]").forEach(b => b.classList.remove("selected"));
+}
+
+/* إِعَادَةُ التَّمَارِينِ */
+
+function resetTargets(selector, initial, feedbackSelector, message) {
+  $$(selector).forEach(target => {
+    target.querySelector(".target-symbol").textContent = initial(target);
+    target.querySelector(".target-hint").textContent =
+      target.dataset.type === "vowel" ? "ضَعِ الْحَرْفَ هُنَا" :
+      target.dataset.type === "madd" ? target.dataset.result === "بَا" ? "فَتْحَةٌ + أَلِفٌ" :
+      target.dataset.result === "بُو" ? "ضَمَّةٌ + وَاوٌ" : "كَسْرَةٌ + يَاءٌ" : "";
+
+    target.style.borderStyle = "dashed";
+    target.style.borderColor = "";
+    target.style.background = "";
+  });
+
+  $(feedbackSelector).textContent = message;
+  selectedLetter = null;
+  $$("[data-drag-letter]").forEach(b => b.classList.remove("selected"));
+}
+
+setupTargets("#vowelTargets .drop-target", "vowel");
+setupTargets("#maddTargets .drop-target", "madd");
+
+$("#hearVowels").addEventListener("click", () => speak("بَ ... بِ ... بُ"));
+
+$("#hearMadd").addEventListener("click", () => speak("بَا ... بُو ... بِي"));
+
+$("#resetVowels").addEventListener("click", () => {
+  resetTargets("#vowelTargets .drop-target", t => t.dataset.result.slice(1), "#vowelFeedback", "هَيَّا نُشَكِّلُ الْحَرْفَ مِنْ جَدِيدٍ!");
+});
+
+$("#resetMadd").addEventListener("click", () => {
+  resetTargets("#maddTargets .drop-target", t => t.dataset.result.slice(1), "#maddFeedback", "هَيَّا نَتَعَلَّمُ الْمَدَّ مِنْ جَدِيدٍ!");
+});
+
+/* =========================================
+   صَبَاحًا وَمَسَاءً
+========================================= */
+
+$$("[data-time]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    $("#timeFeedback").textContent = btn.dataset.feedback;
+
+    if (btn.dataset.time === "correct") {
+      btn.classList.add("correct");
+      addStar("morning-evening");
+      speak("مُمْتَازٌ! أَعُودُ إِلَى الْمَنْزِلِ مَسَاءً.");
+    } else {
+      btn.classList.add("wrong");
+      speak("حَاوِلْ مَرَّةً أُخْرَى.");
+    }
+  });
+});
+
+/* =========================================
+   اخْتِبَارٌ تَفَاعُلِيٌّ
+========================================= */
+
+const questions = [
+  {
+    q: "مَتَى أَذْهَبُ إِلَى الْمَدْرَسَةِ؟",
+    sound: "مَتَى أَذْهَبُ إِلَى الْمَدْرَسَةِ؟",
+    answers: ["مَسَاءً", "صَبَاحًا"],
+    correct: 1,
+    explanation: "أَحْسَنْتَ! أَذْهَبُ إِلَى الْمَدْرَسَةِ صَبَاحًا."
+  },
+  {
+    q: "مَا هَذَا الْحَرْفُ: بَ؟",
+    sound: "مَا هَذَا الْحَرْفُ؟ بَ",
+    answers: ["مِيمٌ", "بَاءٌ"],
+    correct: 1,
+    explanation: "مُمْتَازٌ! هَذَا حَرْفُ الْبَاءِ مَعَ الْفَتْحَةِ."
+  },
+  {
+    q: "مَاذَا نَسْمَعُ عِنْدَ مَدِّ الْبَاءِ بِالْأَلِفِ؟",
+    sound: "مَاذَا نَسْمَعُ عِنْدَ مَدِّ الْبَاءِ بِالْأَلِفِ؟",
+    answers: ["بِي", "بَا"],
+    correct: 1,
+    explanation: "رَائِعٌ! بَاءٌ مَعَ الْفَتْحَةِ وَالْأَلِفِ: بَا."
+  },
+  {
+    q: "مَتَى أَعُودُ إِلَى الْمَنْزِلِ؟",
+    sound: "مَتَى أَعُودُ إِلَى الْمَنْزِلِ؟",
+    answers: ["صَبَاحًا", "مَسَاءً"],
+    correct: 1,
+    explanation: "أَحْسَنْتَ! أَعُودُ إِلَى الْمَنْزِلِ مَسَاءً."
+  }
+];
+
+function renderQuestion() {
+  quizAnswered = false;
+  const q = questions[currentQuiz];
+
+  $("#quizCount").textContent =
+    "السُّؤَالُ " + arabicNumber(currentQuiz + 1) +
+    " مِنْ " + arabicNumber(questions.length);
+
+  $("#quizQuestion").textContent = q.q;
+  $("#quizFeedback").textContent = "";
+  $("#nextQuestion").hidden = true;
+
+  const answers = $("#quizAnswers");
+  answers.innerHTML = "";
+
+  q.answers.forEach((answer, index) => {
+    const btn = document.createElement("button");
+    btn.className = "answer-btn";
+    btn.textContent = answer;
+
+    btn.addEventListener("click", () => {
+      if (quizAnswered) return;
+
+      quizAnswered = true;
+
+      if (index === q.correct) {
+        btn.classList.add("correct");
+        $("#quizFeedback").textContent = q.explanation;
+        addStar("quiz-" + currentQuiz);
+        speak(q.explanation);
+      } else {
+        btn.classList.add("wrong");
+        $("#quizFeedback").textContent = "حَاوِلْ مَرَّةً أُخْرَى! الْإِجَابَةُ الصَّحِيحَةُ هِيَ: " + q.answers[q.correct];
+        answers.children[q.correct].classList.add("correct");
+        speak("حَاوِلْ مَرَّةً أُخْرَى.");
+      }
+
+      $("#nextQuestion").hidden = false;
+
+      if (currentQuiz === questions.length - 1) {
+        $("#nextQuestion").textContent = "إِنْهَاءُ الِاخْتِبَارِ";
+      } else {
+        $("#nextQuestion").textContent = "السُّؤَالُ التَّالِي ←";
+      }
+    });
+
+    answers.appendChild(btn);
+  });
+}
+
+$("#hearQuestion").addEventListener("click", () => {
+  speak(questions[currentQuiz].sound);
+});
+
+$("#nextQuestion").addEventListener("click", () => {
+  if (currentQuiz < questions.length - 1) {
+    currentQuiz++;
+    renderQuestion();
+  } else {
+    $("#quizQuestion").textContent = "أَحْسَنْتَ! لَقَدْ أَكْمَلْتَ الِاخْتِبَارَ!";
+    $("#quizAnswers").innerHTML = "";
+    $("#quizFeedback").textContent = "أَنْتَ تِلْمِيذٌ مُجْتَهِدٌ! اِسْتَمِرَّ فِي التَّعَلُّمِ.";
+    $("#quizCount").textContent = "اِنْتَهَى الِاخْتِبَارُ";
+    $("#nextQuestion").hidden = true;
+    speak("أَحْسَنْتَ! لَقَدْ أَكْمَلْتَ الِاخْتِبَارَ!");
+  }
+});
+
+$("#restartQuiz").addEventListener("click", () => {
+  currentQuiz = 0;
+  renderQuestion();
+});
+
+renderQuestion();
+updateScore();
+</script>
+</body>
+</html>
